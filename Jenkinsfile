@@ -35,3 +35,13 @@ node('docker-slave-general') {
     return
   }
 }
+
+
+
+
+
+  stage('Push image') {
+    docker.withRegistry('https://cloud.docker.com/repository/docker/noamshmueli/', 'docker-hub-credentials') {
+      dockerImage.push()
+    }
+  }
