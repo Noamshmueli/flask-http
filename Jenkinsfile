@@ -1,5 +1,5 @@
 node('docker-slave-general') { 
-  def DockerImage = "webserver:v1.1"
+  def DockerImage = "noamshmueli/webserver:v1.0"
   
   stage('Pre') { // Run pre-build steps
     cleanWs()
@@ -41,7 +41,8 @@ node('docker-slave-general') {
 
 
   stage('Push image') {
-    docker.withRegistry('https://cloud.docker.com/repository/docker/noamshmueli/', 'docker-hub-credentials') {
+    docker.withRegistry('', 'docker-hub-credentials') {
+        sh "docker 
       dockerImage.push()
     }
   }
