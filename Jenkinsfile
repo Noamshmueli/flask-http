@@ -1,5 +1,5 @@
 node('docker-slave-general') { 
-  def DockerImage = "webserver:v1.0"
+  def DockerImage = "webserver:v1.1"
   
   stage('Pre') { // Run pre-build steps
     cleanWs()
