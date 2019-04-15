@@ -40,9 +40,11 @@ node('docker-slave-general') {
 
 
 
-  stage('Push image') {
-    docker.withRegistry('', 'docker-hub-credentials') {
-        sh "docker 
-      dockerImage.push()
-    }
-  }
+
+stage('Push') { // Push the image to repository
+   withDockerRegistry([ credentialsId: "docker_hub_credentials", url: "" ]) {
+         sh "docker push ${DockerImage}"
+       }
+   sh "docker rmi ${DockerImage}"
+   return
+ }
