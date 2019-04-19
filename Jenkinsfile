@@ -34,7 +34,7 @@ node('docker-slave-general') {
     }
     return
   }
-}
+
 
   stage('Push') { // Push the image to repository
    withDockerRegistry([ credentialsId: "docker_hub_credentials", url: "" ]) {
@@ -44,5 +44,5 @@ node('docker-slave-general') {
    return
  }
 
-
+}
 
