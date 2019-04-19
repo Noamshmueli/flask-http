@@ -1,10 +1,6 @@
 node('docker-slave-general') { 
   def DockerImage = "noamshmueli/webserver:v1.0"
   
-#  stage('Pre') { // Run pre-build steps
-#    cleanWs()
-#    sh "docker rm -f webserver || true"
-#  }
   
   stage('Git') { // Get code from GitLab repository
     git branch: 'master',
